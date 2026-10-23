@@ -36,10 +36,17 @@ public class MEMBER {
     }
 
     public void setNama(String nama) {
-        this.nama = nama;
+        if (nama == null || !nama.matches("[a-zA-A\\s]+")) {
+            System.out.println("Peringatan: Tipe input salah! Nama hanya boleh berisi huruf dan spasi.");
+        } else {
+            this.nama = nama;
+        }
     }
 
     public void setNoTelepon(String noTelepon) {
+        if (noTelepon == null || !noTelepon.matches("\\d{10,13}")) {
+            throw new IllegalArgumentException("Input tidak valid! Nomor telepon harus berupa 10-13 digit angka.");
+        }
         this.noTelepon = noTelepon;
     }
 

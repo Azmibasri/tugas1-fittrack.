@@ -1,3 +1,8 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+
 public class MEMBER {
     String nama = "Johny Silver Hand";
     String noTelepon = "+6281265436287";
@@ -51,7 +56,19 @@ public class MEMBER {
     }
 
     public void setTanggalDaftar(String tanggalDaftar) {
-        this.tanggalDaftar = tanggalDaftar;
+        if (tanggalDaftar == null) {
+            throw new IllegalArgumentException("Tanggal daftar tidak boleh null.");
+        }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-uuuu")
+                .withResolverStyle(ResolverStyle.STRICT);
+
+        try {
+            LocalDate.parse(tanggalDaftar, formatter);
+            this.tanggalDaftar = tanggalDaftar;
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("Format tanggal salah! Gunakan format dd-MM-yyyy (contoh: 17-08-2026).");
+        }
     }
 
     public void setJenisPaket(String jenisPaket) {

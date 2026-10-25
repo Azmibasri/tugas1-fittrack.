@@ -5,24 +5,33 @@ import java.time.format.ResolverStyle;
 import java.util.List;
 
 public class MEMBER {
-    String nama = "Johny Silver Hand";
-    String noTelepon = "+6281265436287";
-    String tanggalDaftar = "17-08-2026";
-    String jenisPaket = "VIP";
+    String nama;
+    String noTelepon;
+    String tanggalDaftar;
+    String jenisPaket;
 
-    public MEMBER(String nama, String noTelepon, String tanggalDaftar, String jenisPaket){
-        this.nama = nama;
-        this.noTelepon = noTelepon;
-        this.tanggalDaftar = tanggalDaftar;
-        this.jenisPaket = jenisPaket;
 
+    public MEMBER() {
+        setNama("Johny Silver Hand");
+        setNoTelepon("+6281265436287");
+        setTanggalDaftar("17-08-2026");
+        setJenisPaket("VIP");
     }
 
-    public MEMBER(String nama, String noTelepon,String tanggalDaftar){
-        this.nama = nama;
-        this.noTelepon = noTelepon;
-        this.tanggalDaftar = tanggalDaftar;
-        this.jenisPaket = "Basic";
+    
+    public MEMBER(String nama, String noTelepon, String tanggalDaftar, String jenisPaket) {
+        setNama(nama);
+        setNoTelepon(noTelepon);
+        setTanggalDaftar(tanggalDaftar);
+        setJenisPaket(jenisPaket);
+    }
+
+   
+    public MEMBER(String nama, String noTelepon, String tanggalDaftar) {
+        setNama(nama);
+        setNoTelepon(noTelepon);
+        setTanggalDaftar(tanggalDaftar);
+        setJenisPaket("Basic");
     }
 
     public String getNama() {
@@ -41,7 +50,7 @@ public class MEMBER {
         return jenisPaket;
     }
 
-    public void setNama(String nama) {
+    public final void setNama(String nama) {
         if (nama == null || !nama.matches("[a-zA-A\\s]+")) {
             System.out.println("Peringatan: Tipe input salah! Nama hanya boleh berisi huruf dan spasi.");
         } else {
@@ -49,14 +58,14 @@ public class MEMBER {
         }
     }
 
-    public void setNoTelepon(String noTelepon) {
+    public final void setNoTelepon(String noTelepon) {
         if (noTelepon == null || !noTelepon.matches("\\d{10,13}")) {
             throw new IllegalArgumentException("Input tidak valid! Nomor telepon harus berupa 10-13 digit angka.");
         }
         this.noTelepon = noTelepon;
     }
 
-    public void setTanggalDaftar(String tanggalDaftar) {
+    public final void setTanggalDaftar(String tanggalDaftar) {
         if (tanggalDaftar == null) {
             throw new IllegalArgumentException("Tanggal daftar tidak boleh null.");
         }
@@ -72,15 +81,15 @@ public class MEMBER {
         }
     }
 
-    public void setJenisPaket(String jenisPaket) {
+    public final void setJenisPaket(String jenisPaket) {
         if (jenisPaket == null) {
             throw new IllegalArgumentException("Jenis paket tidak boleh null.");
         }
 
-        // Daftar paket yang valid
+        
         List<String> paketValid = List.of("Reguler", "Express", "Kilat");
 
-        // Perbaikan: tambahkan spasi antara 'boolean' dan 'isValid'
+       
         boolean isValid = paketValid.stream()
                 .anyMatch(p -> p.equalsIgnoreCase(jenisPaket.trim()));
 

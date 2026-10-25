@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.List;
 
 public class MEMBER {
     String nama = "Johny Silver Hand";
@@ -72,6 +73,21 @@ public class MEMBER {
     }
 
     public void setJenisPaket(String jenisPaket) {
-        this.jenisPaket = jenisPaket;
+        if (jenisPaket == null) {
+            throw new IllegalArgumentException("Jenis paket tidak boleh null.");
+        }
+
+        // Daftar paket yang valid
+        List<String> paketValid = List.of("Reguler", "Express", "Kilat");
+
+        // Perbaikan: tambahkan spasi antara 'boolean' dan 'isValid'
+        boolean isValid = paketValid.stream()
+                .anyMatch(p -> p.equalsIgnoreCase(jenisPaket.trim()));
+
+        if (!isValid) {
+            throw new IllegalArgumentException("Jenis paket tidak valid! Pilihan yang tersedia: Reguler, Express, Kilat.");
+        }
+
+        this.jenisPaket = jenisPaket.trim();
     }
 }

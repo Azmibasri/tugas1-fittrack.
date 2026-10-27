@@ -4,12 +4,28 @@ import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 import java.util.List;
 
+/**
+ * Kelas ini merepresentasikan data seorang member dalam sistem.
+ *
+ * @author Azmi Basri
+ * @version 1.0
+ * @since 2026
+ */
 public class MEMBER {
     String nama;
     String noTelepon;
     String tanggalDaftar;
     String jenisPaket;
 
+        /**
+     * Method constructor untuk membuat objek
+     * dari kelas member
+     *
+     * @param nama          nama lengkap member
+     * @param noTelepon     nomor telepon member
+     * @param tanggalDaftar tanggal saat member mendaftar
+     * @param jenisPaket    jenis paket langganan member
+     */
 
     public MEMBER() {
         setNama("Johny Silver Hand");
@@ -18,7 +34,15 @@ public class MEMBER {
         setJenisPaket("VIP");
     }
 
-    
+    /**
+     * Method constructor untuk membuat objek dari kelas member
+     * dengan jenis paket default "Basic"
+     *
+     * @param nama          nama lengkap member
+     * @param noTelepon     nomor telepon member
+     * @param tanggalDaftar tanggal saat member mendaftar
+     */
+
     public MEMBER(String nama, String noTelepon, String tanggalDaftar, String jenisPaket) {
         setNama(nama);
         setNoTelepon(noTelepon);

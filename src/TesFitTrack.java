@@ -13,9 +13,11 @@ public class TesFitTrack {
              * Sekenrio uji 3 : panggil setter dengan nilai salah;
              */
             System.out.println(daftarMember[0].getTanggalDaftar());
-            //daftarMember[0].setTanggalDaftar("23/10/2026");
-            //System.out.println(daftarMember[0].getTanggalDaftar());
-
+            daftarMember[0].setTanggalDaftar("23/10/2026");
+            System.out.println(daftarMember[0].getTanggalDaftar());
+            for (Object elem : col) {
+                
+            }
     }
 
 }

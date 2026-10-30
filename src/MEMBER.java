@@ -123,4 +123,15 @@ public class MEMBER {
 
         this.jenisPaket = jenisPaket.trim();
     }
+
+    /**
+     * Meng-override method toString untuk memberikan representasi teks berlabel yang rapi.
+     *
+     * @return teks berlabel berisi seluruh informasi member
+     */
+    @Override
+    public String toString() {
+        return String.format("Member [Nama: %s | No. Telp: %s | Tanggal Daftar: %s | Paket: %s]",
+                nama, noTelepon, tanggalDaftar, jenisPaket);
+    }
 }

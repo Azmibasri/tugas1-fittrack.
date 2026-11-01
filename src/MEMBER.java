@@ -12,12 +12,12 @@ import java.util.List;
  * @since 2026
  */
 public class MEMBER {
-    String nama;
-    String noTelepon;
-    String tanggalDaftar;
-    String jenisPaket;
+    private String nama;
+    private String noTelepon;
+    private String tanggalDaftar;
+    private String jenisPaket;
 
-        /**
+    /**
      * Method constructor untuk membuat objek
      * dari kelas member
      *
